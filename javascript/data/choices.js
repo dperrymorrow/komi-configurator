@@ -34,13 +34,12 @@ const groups = [
   },
 ];
 
+const choices = groups.map((group) => group.choices).flat();
+const cordura = groups.find((group) => group.key === "cordura");
+
 export default {
   groups,
-  cordura: groups.find((group) => group.key === "cordura"),
-  findByKey(key) {
-    return groups
-      .map((group) => group.choices)
-      .flat()
-      .find((choice) => choice.key === key);
-  },
+  choices,
+  cordura,
+  findByKey: (key) => choices.find((choice) => choice.key === key),
 };

@@ -1,5 +1,6 @@
 import { html, useState } from "https://esm.sh/htm/preact/standalone";
 import Modal from "./modal.js";
+import Button from "./button.js";
 
 export default function ({ etsyUrl }) {
   const [modalOpen, setModalOpen] = useState(false);
@@ -8,12 +9,11 @@ export default function ({ etsyUrl }) {
     window.open(etsyUrl, "_blank").focus();
   }
 
-  return html`<button
-      onClick=${() => setModalOpen(true)}
-      class="fixed top-4 right-4 px-6 text-md py-3 uppercase transition-all font-bold rounded-full bg-black hover:ring-4 drop-shadow-lg ring-black  text-white ring-offset-2"
-    >
-      Finished
-    </button>
+  return html`<div class="fixed top-4 right-4">
+      <${Button} clicked=${() => setModalOpen(true)}>
+        <span class="material-symbols-outlined mr-1"> done </span> Done
+      <//>
+    </div>
 
     ${modalOpen
       ? html`<${Modal}

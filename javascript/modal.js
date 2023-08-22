@@ -1,4 +1,5 @@
 import { html, useState } from "https://esm.sh/htm/preact/standalone";
+import Button from "./button.js";
 
 export default function ({ checkout, cancel }) {
   const url = window.location.href + window.location.hash;
@@ -60,19 +61,18 @@ export default function ({ checkout, cancel }) {
       <div
         class="flex flex-col md:flex-row justify-between md:border-t border-slate-400 md:pt-6"
       >
-        <button
-          onClick=${cancel}
-          class="rounded-full mb-2 md:mb-0 leading-tight uppercase flex-grow text-sm text-white text-center font-bold bg-slate-600 px-6 py-4 hover:ring-4 ring-offset-2 ring-slate-800 transition-all"
-        >
-          I'm not done
-        </button>
+        <div class="flex-grow mr-2 opacity-60">
+          <${Button} clicked=${cancel}>Keep Working<//>
+        </div>
 
-        <button
-          class="rounded-full leading-tight uppercase text-sm flex-grow text-center bg-black text-white font-bold px-6 py-4 md:ml-2 ring-offset-2 hover:ring-4 ring-black transition-all"
-          onClick=${checkout}
-        >
-          Checkout on Etsy
-        </button>
+        <div class="flex-grow">
+          <${Button} clicked=${checkout}>
+            <span class="material-symbols-outlined mr-1">
+              shopping_cart_checkout
+            </span>
+            Checkout / Etsy
+          <//>
+        </div>
       </div>
     </div>
   </div>`;
