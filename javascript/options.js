@@ -3,10 +3,7 @@ import OptGroup from "./opt-group.js";
 
 export default function ({ selections, options, select }) {
   return html`
-    <div
-      class="fixed backdrop-blur-sm drop-shadow-lg bottom-0 left-0 overflow-y-auto bg-slate-900/50 z-40 max-h-[60%] w-full
-    transition-all"
-    >
+    <div class="overflow-y-auto bg-slate-900/50 transition-all h-full pt-2">
       <div class="flex flex-row flex-wrap p-6 items-center">
         ${options.map(
           (option) =>
