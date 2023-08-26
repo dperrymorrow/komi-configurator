@@ -59,10 +59,15 @@ export default function ({ close, etsyUrl }) {
     <div
       class="flex flex-col md:flex-row justify-between md:border-t border-slate-400 md:pt-6"
     >
-      <${Button} clicked=${close} class="mr-2 flex-grow bg-slate-600">Close<//>
+      <${Button}
+        clicked=${close}
+        class="mr-2 flex-grow bg-slate-600 mb-2 md:mb-0"
+      >
+        <span class="material-symbols-outlined mr-2"> close </span> Close
+      <//>
 
       <${Button} clicked=${checkout} class="flex-grow bg-black">
-        <span class="material-symbols-outlined mr-1">
+        <span class="material-symbols-outlined mr-2">
           shopping_cart_checkout
         </span>
         Checkout / Etsy

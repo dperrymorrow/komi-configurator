@@ -5,7 +5,13 @@ export default function ({ view, selections }) {
   return html`<div class="flex-shrink-0 w-full snap-center relative h-full">
     ${view.layers.map(
       (layer) =>
-        html` <${Layer} layer=${layer} choice=${selections[layer.key]} /> `
+        html`
+          <${Layer}
+            layer=${layer}
+            view=${view}
+            choice=${selections[layer.key]}
+          />
+        `
     )}
   </div>`;
 }

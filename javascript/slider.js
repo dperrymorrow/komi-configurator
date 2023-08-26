@@ -6,8 +6,10 @@ import {
 } from "https://esm.sh/htm/preact/standalone";
 import View from "./view.js";
 import Button from "./button.js";
+import products from "./data/products.js";
 
-export default function ({ views, selections, changedKey }) {
+export default function ({ selections, changedKey }) {
+  const views = products.current.views;
   const [slideIndex, setSlideIndex] = useState(0);
 
   const next = () => setSlideIndex(slideIndex + 1);

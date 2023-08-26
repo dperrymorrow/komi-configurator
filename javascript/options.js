@@ -1,7 +1,10 @@
 import { html } from "https://esm.sh/htm/preact/standalone";
 import OptGroup from "./opt-group.js";
+import products from "./data/products.js";
 
-export default function ({ selections, options, select }) {
+export default function ({ selections, select }) {
+  const { options } = products.current;
+
   return html`
     <div class="overflow-y-auto bg-slate-900/50 transition-all h-full pt-2">
       <div class="flex flex-row flex-wrap p-6 items-center">
@@ -15,6 +18,7 @@ export default function ({ selections, options, select }) {
                 class="w-32 focus:bg-slate-600 md:w-40 truncate rounded-lg bg-slate-800 text-slate-300 p-2 mt-1"
                 value=${selections[option.key].key}
                 name=${option.key}
+                onFocus=${select}
                 onChange=${select}
               >
                 ${option.choices.map(

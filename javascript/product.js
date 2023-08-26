@@ -7,8 +7,10 @@ import Options from "./options.js";
 import CheckoutModal from "./checkout-modal.js";
 import Slider from "./slider.js";
 import Button from "./button.js";
+import products from "./data/products.js";
 
-export default function ({ product }) {
+export default function () {
+  const product = products.current;
   const { defaults, updateHash } = State(product);
   const [selections, setSelections] = useState(defaults);
   const [changedKey, setChangedKey] = useState(null);
@@ -30,41 +32,30 @@ export default function ({ product }) {
   return html`
     <div class="flex flex-col h-full">
       <div class="flex-grow min-h-[50%] relative">
-        <${Slider}
-          views=${product.views}
-          selections=${selections}
-          changedKey=${changedKey}
-        />
+        <${Slider} selections=${selections} changedKey=${changedKey} />
 
         <div
           class="flex px-6 absolute right-0 -bottom-6 z-40 items-center w-full md:w-auto"
         >
-          <${Button} clicked=${openInstagram} class="py-2 mr-2 bg-slate-400/50">
+          <${Button} clicked=${openInstagram} class="py-2 mr-2 bg-slate-400/70">
             <span class="material-symbols-outlined mr-1"> lightbulb </span>
             Inspire
           <//>
-          <${Button} clicked=${toggleCheckout} class="py-2 bg-green-800">
+          <${Button} clicked=${toggleCheckout} class="py-2 bg-green-800/70">
             <span class="material-symbols-outlined mr-1"> done </span>
             Done
           <//>
         </div>
       </div>
 
-      <div class="flex-grow-1 overflow-y-auto relative">
-        <${Options}
-          selections=${selections}
-          options=${product.options}
-          select=${makeSelection}
-        />
+      <div class="flex-grow-1 overflow-y-auto relative drop-shadow-2xl">
+        <${Options} selections=${selections} select=${makeSelection} />
       </div>
 
       <!-- all fixed stuff -->
 
       ${checkoutModalOpen
-        ? html`<${CheckoutModal}
-            etsyUrl=${product.etsyUrl}
-            close=${toggleCheckout}
-          />`
+        ? html`<${CheckoutModal} close=${toggleCheckout} />`
         : null}
 
       <img

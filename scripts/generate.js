@@ -13,9 +13,6 @@ fs.readdirSync(dir).forEach((file) => {
 
   Choices.cordura.choices.forEach(({ key, hex }) => {
     const replaced = content.replaceAll(regex, `fill:${hex}`);
-
-    // console.log(hex);
-
     const fileName = file.replace(".svg", `-${key}.svg`);
     const filePath = `${dest}${fileName}`;
 

@@ -6,8 +6,6 @@ import products from "./data/products.js";
 
 export default function (productKey) {
   const product = products[productKey];
-  render(
-    html`<${Product} product="${product}" />`,
-    document.getElementById("app")
-  );
+  products.current = product;
+  render(html`<${Product} />`, document.getElementById("app"));
 }

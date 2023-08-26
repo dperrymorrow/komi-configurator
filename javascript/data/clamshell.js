@@ -1,6 +1,6 @@
 import choices from "./choices.js";
 
-const { findByKey, cordura } = choices;
+const { findByKey, cordura, velcro } = choices;
 
 const options = [
   {
@@ -39,21 +39,21 @@ const options = [
   {
     key: "inner-lining",
     label: "Lining",
-    default: findByKey("cd-pink"),
+    default: findByKey("cd-fl-pink"),
     choices: [cordura],
   },
 
   {
     key: "inner-pockets",
     label: "pockets",
-    default: findByKey("cd-pink"),
+    default: findByKey("cd-fl-pink"),
     choices: [cordura],
   },
 
   {
     key: "back-secondary",
     label: "Back Secondary",
-    default: findByKey("cd-pink"),
+    default: findByKey("cd-fl-pink"),
     choices: [cordura],
   },
 
@@ -61,13 +61,13 @@ const options = [
     key: "back-main",
     label: "Back Main",
     default: findByKey("cd-od"),
-    choices: [cordura],
+    choices: [cordura, velcro],
   },
 ];
 
 const clamshell = {
   label: "EDC Clamshell Pouch",
-  tag: "clamshell",
+  key: "clamshell",
   options,
   etsyUrl: "https://www.etsy.com/listing/1489990809/customizable-edc-pouch",
   defaults: options.reduce((acc, option) => {
@@ -78,59 +78,25 @@ const clamshell = {
     {
       key: "front",
       layers: [
-        {
-          src: "/images/clamshell/front-bg.svg",
-        },
-        {
-          key: "edges",
-          src: "/images/clamshell/dynamic/generated/front-edges-[key].svg",
-        },
-        {
-          key: "hinge",
-          src: "/images/clamshell/dynamic/generated/front-hinge-[key].svg",
-        },
-        {
-          key: "front-secondary",
-          src: "/images/clamshell/dynamic/generated/front-secondary-[key].svg",
-        },
-        {
-          key: "front-main",
-          src: "/images/clamshell/dynamic/generated/front-main-[key].svg",
-        },
-        {
-          key: "cording",
-          src: "/images/clamshell/dynamic/generated/front-cording-[key].svg",
-        },
+        { src: "/images/clamshell/front-bg.svg" },
+        { key: "edges" },
+        { key: "hinge" },
+        { key: "front-secondary" },
+        { key: "front-main" },
+        { key: "cording" },
         { src: "/images/clamshell/front-overlay.svg" },
       ],
     },
     {
       key: "back",
       layers: [
-        {
-          src: "/images/clamshell/back-bg.svg",
-        },
-        {
-          key: "edges",
-          src: "/images/clamshell/dynamic/generated/back-edges-[key].svg",
-        },
-        {
-          key: "hinge",
-          src: "/images/clamshell/dynamic/generated/back-hinge-[key].svg",
-        },
-        {
-          key: "back-secondary",
-          src: "/images/clamshell/dynamic/generated/back-secondary-[key].svg",
-        },
-        {
-          key: "back-main",
-          src: "/images/clamshell/dynamic/generated/back-main-[key].svg",
-        },
+        { src: "/images/clamshell/back-bg.svg" },
+        { key: "edges" },
+        { key: "hinge" },
+        { key: "back-secondary" },
+        { key: "back-main" },
         { src: "/images/clamshell/back-overlay.svg" },
-        {
-          key: "cording",
-          src: "/images/clamshell/dynamic/generated/back-cording-[key].svg",
-        },
+        { key: "cording" },
       ],
     },
   ],
