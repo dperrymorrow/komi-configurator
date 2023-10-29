@@ -82,6 +82,12 @@ const groups = [
         inStock: true,
       },
       {
+        key: "cd-tan",
+        label: "Desert Tan",
+        hex: "#bcaa82",
+        inStock: true,
+      },
+      {
         key: "cd-blue-camo",
         label: "Blue Camo",
         inStock: true,
