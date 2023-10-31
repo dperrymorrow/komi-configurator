@@ -22,8 +22,8 @@ export default function ({ selections, changedKey }) {
   }, [changedKey]);
 
   useLayoutEffect(() => {
-    const slide = document.getElementById("sliderContainer").children;
-    slide[slideIndex].scrollIntoView();
+    const slides = document.getElementById("sliderContainer").children;
+    slides[slideIndex].scrollIntoView();
   }, [slideIndex]);
 
   return html`
@@ -31,7 +31,7 @@ export default function ({ selections, changedKey }) {
       ${views.map((view) => html`<${View} view=${view} selections=${selections} /> `)}
     </div>
     <!-- the slider container -->
-    <!-- 
+    <!--
       ${slideIndex > 0
       ? html`<${Button}
           clicked=${previous}
