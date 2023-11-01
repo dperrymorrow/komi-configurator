@@ -17,7 +17,7 @@ export default function ({ selections, changedKey }) {
 
     if (!layer) {
       const desiredIndex = views.findIndex(({ layers }) => layers.find(({ key }) => key === changedKey));
-      setSlideIndex(desiredIndex);
+      if (desiredIndex !== slideIndex) setSlideIndex(desiredIndex);
     }
   }, [changedKey]);
 

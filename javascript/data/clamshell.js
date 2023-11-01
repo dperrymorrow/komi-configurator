@@ -1,6 +1,6 @@
 import choices from "./choices.js";
 
-const { findByKey, cordura, velcro } = choices;
+const { findByKey, cordura, velcro, paracord } = choices;
 
 const options = [
   {
@@ -33,8 +33,8 @@ const options = [
   {
     key: "cording",
     label: "Cording",
-    default: findByKey("cd-sunflower"),
-    choices: [cordura],
+    default: findByKey("pc-yellow"),
+    choices: [paracord],
   },
   {
     key: "inner-lining",
@@ -92,11 +92,22 @@ const clamshell = {
       key: "back-side",
       dir: "/images/products/clamshell/back-side/",
       layers: [
-        { key: "hinge", src: "hinge.png" },
         { key: "back-main", src: "back-main.png" },
         { key: "back-secondary", src: "back-secondary.png" },
         { key: "cording", src: "cording.png" },
         { key: "edges", src: "sides.png" },
+        { src: "overlay.jpg" },
+      ],
+    },
+    {
+      key: "back-main",
+      dir: "/images/products/clamshell/back-main/",
+      layers: [
+        { key: "hinge", src: "hinge.png" },
+        { key: "back-secondary", src: "back-secondary.png" },
+        { key: "back-main", src: "back-main.png" },
+        { key: "edges", src: "sides.png" },
+        { key: "cording", src: "cording.png" },
         { src: "overlay.jpg" },
       ],
     },

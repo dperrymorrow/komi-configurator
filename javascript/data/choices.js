@@ -1,8 +1,29 @@
 const groups = [
   {
+    label: "Paracord",
+    key: "paracord",
+    choices: [
+      {
+        key: "pc-black",
+        label: "Black",
+        hex: "#202020",
+        filter: "filter: brightness(0) saturate(100%) invert(6%) sepia(30%) saturate(9%) hue-rotate(330deg) brightness(103%) contrast(87%);",
+        inStock: true,
+      },
+      {
+        key: "pc-yellow",
+        label: "Yellow",
+        hex: "#f2e014",
+        inStock: true,
+        filter: "filter: brightness(0) saturate(100%) invert(88%) sepia(40%) saturate(1772%) hue-rotate(352deg) brightness(106%) contrast(89%);",
+        inStock: true,
+      },
+    ],
+  },
+
+  {
     label: "1000d Cordura",
     key: "cordura",
-    src: (product, view, layer, choice) => `/images/${product.key}/dynamic/generated/${view.key}-${layer.key}-${choice.key}.svg`,
     choices: [
       {
         key: "cd-black",
@@ -101,17 +122,15 @@ const groups = [
       {
         key: "cd-blue-camo",
         label: "Blue Camo",
+        useImage: true,
         inStock: true,
-        src: (product, view, layer, choice) => `/images/${product.key}/${view.key}-${layer.key}-${choice.key}.svg`,
       },
     ],
   },
   {
     label: "Velcro Loop",
     key: "velcro",
-    src: (product, view, layer, choice) => {
-      return `/images/${product.key}/${view.key}-${layer.key}-${choice.key}.png`;
-    },
+
     choices: [
       {
         key: "vc-black",
@@ -127,6 +146,7 @@ const choices = groups.map((group) => group.choices).flat();
 export default {
   groups,
   choices,
+  paracord: groups.find((group) => group.key === "paracord"),
   cordura: groups.find((group) => group.key === "cordura"),
   velcro: groups.find((group) => group.key === "velcro"),
   findByKey: (key) => choices.find((choice) => choice.key === key),
