@@ -18,6 +18,7 @@ export default function ({ selections, changedKey }) {
     if (!layer) {
       const desiredIndex = views.findIndex(({ layers }) => layers.find(({ key }) => key === changedKey));
       if (desiredIndex !== slideIndex) setSlideIndex(desiredIndex);
+      console.log(desiredIndex, slideIndex);
     }
   }, [changedKey]);
 
@@ -32,23 +33,16 @@ export default function ({ selections, changedKey }) {
     </div>
     <!-- the slider container -->
     <!--
-      ${slideIndex > 0
-      ? html`<${Button}
-          clicked=${previous}
-          class="absolute top-1/2 bg-white/20 text-black hover:bg-white/80 left-6 -mt-6 transition-all md:inline hidden w-32 px-4"
-        >
+    ${slideIndex > 0
+      ? html`<${Button} clicked=${previous} class="absolute top-1/2 left-6 transition-all w-32">
           <span class="material-symbols-outlined">chevron_left</span>
         <//>`
       : null}
-      ${slideIndex < views.length - 1
-      ? html`<${Button}
-          clicked=${next}
-          class="absolute top-1/2 right-6 -mt-6 bg-white/25 hover:bg-white/80 text-black transition-all md:inline hidden w-32 px-4"
-        >
-          is this the button?
+    ${slideIndex < views.length - 1
+      ? html`<${Button} clicked=${next} class="absolute top-1/2 right-6 transition-all max-w-32">
           <span class="material-symbols-outlined">chevron_right</span>
         <//>`
       : null}
-    -->
+      -->
   `;
 }
