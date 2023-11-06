@@ -1,4 +1,4 @@
-import inspiration from "./data/inspiration.js";
+import inspiration from "../data/inspiration.js";
 import ModalWrapper from "./modal-wrapper.js";
 import { html } from "https://esm.sh/htm/preact/standalone";
 

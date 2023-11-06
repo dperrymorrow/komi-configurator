@@ -1,14 +1,14 @@
 import { useState, html } from "https://esm.sh/htm/preact/standalone";
 
-import choices from "./data/choices.js";
+import choices from "../data/choices.js";
 
-import State from "./data/state.js";
+import State from "../data/state.js";
 import Options from "./options.js";
 import CheckoutModal from "./checkout-modal.js";
 import Slider from "./slider.js";
 import Button from "./button.js";
 import Thumbs from "./thumbs.js";
-import products from "./data/products.js";
+import products from "../data/products.js";
 
 export default function () {
   const product = products.current;
@@ -30,7 +30,8 @@ export default function () {
   }
 
   return html`
-    <div class="flex px-6 fixed right-0 top-6 z-40 items-center w-full hidden">
+    <!--
+    <div class="flex px-6 items-center">
       <img class="md:w-20 w-14" src="/images/logo.svg" />
       <${Button} clicked=${openInstagram} class="py-2 mr-2 bg-slate-400/70">
         <span class="material-symbols-outlined mr-1"> lightbulb </span>
@@ -41,14 +42,16 @@ export default function () {
         Done
       <//>
     </div>
+    -->
 
-    <div class="flex flex-row h-full">
-      <div class="flex flex-col flex-grow min-h-full relative">
+    <div class="flex flex-col lg:flex-row border-red h-screen">
+      <div class="flex flex-grow lg:w-2/3 w-full">
         <${Slider} selections=${selections} changedKey=${changedKey} />
-        <${Thumbs} selections=${selections} changedKey=${changedKey} />
+
+        <!--<${Thumbs} selections=${selections} changedKey=${changedKey} />-->
       </div>
 
-      <div class="overflow-y-auto relative drop-shadow-2xl w-60">
+      <div class="flex-1">
         <${Options} selections=${selections} select=${makeSelection} />
       </div>
 

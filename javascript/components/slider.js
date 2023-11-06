@@ -1,7 +1,7 @@
 import { useState, html, useEffect, useLayoutEffect } from "https://esm.sh/htm/preact/standalone";
 import View from "./view.js";
 import Button from "./button.js";
-import products from "./data/products.js";
+import products from "../data/products.js";
 
 export default function ({ selections, changedKey }) {
   const views = products.current.views;

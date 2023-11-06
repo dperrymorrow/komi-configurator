@@ -106,6 +106,14 @@ const groups = [
       },
 
       {
+        key: "cd-navy",
+        hex: "#1e2c3e",
+        label: "Navy",
+        inStock: true,
+        filter: "filter: brightness(0) saturate(100%) invert(14%) sepia(5%) saturate(4911%) hue-rotate(175deg) brightness(91%) contrast(90%);",
+      },
+
+      {
         key: "cd-od",
         label: "Olive Drab",
         hex: "#516336",
@@ -123,6 +131,14 @@ const groups = [
         key: "cd-blue-camo",
         label: "Blue Camo",
         useImage: true,
+        swatch: "images/swatches/blue-camo.jpg",
+        inStock: true,
+      },
+      {
+        key: "cd-multi-black",
+        label: "Multicam Black",
+        useImage: true,
+        swatch: "images/swatches/multicam-black.jpg",
         inStock: true,
       },
     ],

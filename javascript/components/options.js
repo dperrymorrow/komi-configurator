@@ -1,6 +1,6 @@
 import { html } from "https://esm.sh/htm/preact/standalone";
 import OptGroup from "./opt-group.js";
-import products from "./data/products.js";
+import products from "../data/products.js";
 
 export default function ({ selections, select }) {
   const { options } = products.current;

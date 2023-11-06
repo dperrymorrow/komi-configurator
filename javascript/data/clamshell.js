@@ -78,7 +78,6 @@ const clamshell = {
     {
       key: "front",
       dir: "/images/products/clamshell/front-main/",
-      hits: [],
       layers: [
         { key: "front-secondary", src: "front-secondary.png" },
         { key: "front-main", src: "front-main.png" },
@@ -91,7 +90,6 @@ const clamshell = {
     {
       key: "back-side",
       dir: "/images/products/clamshell/back-side/",
-      hits: [],
       layers: [
         { key: "back-main", src: "back-main.png" },
         { key: "back-secondary", src: "back-secondary.png" },
@@ -103,7 +101,6 @@ const clamshell = {
     {
       key: "back-main",
       dir: "/images/products/clamshell/back-main/",
-      hits: [{ key: "back-secondary", src: "hits/back-secondary.svg" }],
       layers: [
         { key: "hinge", src: "hinge.png" },
         { key: "back-secondary", src: "back-secondary.png" },
