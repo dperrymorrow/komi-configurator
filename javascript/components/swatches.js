@@ -8,6 +8,7 @@ export default function () {
         html`<div class="p-4 bg-white m-2 rounded-md">
           <div class="w-40 h-40 rounded-md" style="background-color:${choice.hex};">${choice.useImage && html`<img src=${choice.swatch} />`}</div>
           <label class="pt-3 block font-black bg-white">${choice.label}</label>
+          <em class="text-slate-400">${choice.key}</em>
         </div> `
     )}
   </div>`;

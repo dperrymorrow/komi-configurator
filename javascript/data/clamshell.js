@@ -69,7 +69,7 @@ const clamshell = {
   label: "EDC Clamshell Pouch",
   key: "clamshell",
   options,
-  etsyUrl: "https://www.etsy.com/listing/1489990809/customizable-edc-pouch",
+  etsyUrl: "https://etsy.me/40ps8R3",
   defaults: options.reduce((acc, option) => {
     return { ...acc, [option.key]: option.default };
   }, {}),
@@ -77,39 +77,39 @@ const clamshell = {
   views: [
     {
       key: "front",
-      dir: "/images/products/clamshell/front-main/",
+      dir: "/images/products/clamshell/front/",
       layers: [
-        { key: "front-secondary", src: "front-secondary.png" },
-        { key: "front-main", src: "front-main.png" },
-        { key: "edges", src: "sides.png" },
-        { key: "hinge", src: "hinge.png" },
-        { key: "cording", src: "cording.png" },
-        { src: "overlay.jpg" },
+        { src: "underlay.jpg" },
+        { key: "edges", src: "sides-{choice}.png" },
+        { key: "hinge", src: "hinge-{choice}.png" },
+        { key: "front-secondary", src: "front-secondary-{choice}.png" },
+        { key: "front-main", src: "front-main-{choice}.png" },
+        { key: "cording", src: "cording-{choice}.png" },
       ],
     },
-    {
-      key: "back-side",
-      dir: "/images/products/clamshell/back-side/",
-      layers: [
-        { key: "back-main", src: "back-main.png" },
-        { key: "back-secondary", src: "back-secondary.png" },
-        { key: "cording", src: "cording.png" },
-        { key: "edges", src: "sides.png" },
-        { src: "overlay.jpg" },
-      ],
-    },
-    {
-      key: "back-main",
-      dir: "/images/products/clamshell/back-main/",
-      layers: [
-        { key: "hinge", src: "hinge.png" },
-        { key: "back-secondary", src: "back-secondary.png" },
-        { key: "back-main", src: "back-main.png" },
-        { key: "edges", src: "sides.png" },
-        { key: "cording", src: "cording.png" },
-        { src: "overlay.jpg" },
-      ],
-    },
+    // {
+    //   key: "back-side",
+    //   dir: "/images/products/clamshell/back-side/",
+    //   layers: [
+    //     { key: "back-main", src: "back-main.png" },
+    //     { key: "back-secondary", src: "back-secondary.png" },
+    //     { key: "cording", src: "cording.png" },
+    //     { key: "edges", src: "sides.png" },
+    //     { src: "overlay.jpg" },
+    //   ],
+    // },
+    // {
+    //   key: "back-main",
+    //   dir: "/images/products/clamshell/back-main/",
+    //   layers: [
+    //     { key: "hinge", src: "hinge.png" },
+    //     { key: "back-secondary", src: "back-secondary.png" },
+    //     { key: "back-main", src: "back-main.png" },
+    //     { key: "edges", src: "sides.png" },
+    //     { key: "cording", src: "cording.png" },
+    //     { src: "overlay.jpg" },
+    //   ],
+    // },
   ],
 };
 

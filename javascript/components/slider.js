@@ -1,14 +1,11 @@
 import { useState, html, useEffect, useLayoutEffect } from "https://esm.sh/htm/preact/standalone";
 import View from "./view.js";
-import Button from "./button.js";
 import products from "../data/products.js";
+import SliderBtn from "./slider-btn.js";
 
 export default function ({ selections, changedKey }) {
   const views = products.current.views;
   const [slideIndex, setSlideIndex] = useState(0);
-
-  const next = () => setSlideIndex(slideIndex + 1);
-  const previous = () => setSlideIndex(slideIndex - 1);
 
   useEffect(() => {
     if (!changedKey) return;
@@ -17,32 +14,21 @@ export default function ({ selections, changedKey }) {
 
     if (!layer) {
       const desiredIndex = views.findIndex(({ layers }) => layers.find(({ key }) => key === changedKey));
-      if (desiredIndex !== slideIndex) setSlideIndex(desiredIndex);
-      console.log(desiredIndex, slideIndex);
+      setSlideIndex(desiredIndex);
     }
   }, [changedKey]);
 
   useLayoutEffect(() => {
-    const slides = document.getElementById("sliderContainer").children;
+    const slides = document.querySelectorAll("#sliderContainer .view");
     slides[slideIndex].scrollIntoView();
   }, [slideIndex]);
 
   return html`
-    <div id="sliderContainer" class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar h-full w-full items-center relative">
-      ${views.map((view) => html`<${View} view=${view} selections=${selections} /> `)}
+    <div id="sliderContainer" class="isolate flex overflow-x-auto snap-x scroll-smooth snap-mandatory no-scrollbar h-full w-full items-center relative">
+      <${SliderBtn} direction="previous" numSlides=${views.length} slideIndex=${slideIndex} setSlideIndex=${setSlideIndex} />
+      <!-- the slides -->
+      ${views.map((view) => html`<${View} class="view w-full" view=${view} selections=${selections} /> `)}
+      <${SliderBtn} direction="next" numSlides=${views.length} slideIndex=${slideIndex} setSlideIndex=${setSlideIndex} />
     </div>
-    <!-- the slider container -->
-    <!--
-    ${slideIndex > 0
-      ? html`<${Button} clicked=${previous} class="absolute top-1/2 left-6 transition-all w-32">
-          <span class="material-symbols-outlined">chevron_left</span>
-        <//>`
-      : null}
-    ${slideIndex < views.length - 1
-      ? html`<${Button} clicked=${next} class="absolute top-1/2 right-6 transition-all max-w-32">
-          <span class="material-symbols-outlined">chevron_right</span>
-        <//>`
-      : null}
-      -->
   `;
 }
